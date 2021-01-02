@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+    <div class="jumbotron text-light bg-info">
+        <h1>Zonama</h1>
+        <p class="lead">Gestionnaire de shop</p>
+    </div>
+
+    @if (Session["Nom"] == null)
+    {
+        <div class="row">
+            <h3>Veuillez vous connecter pour accéder aux options de gestions</h3>
+        </div>
+    }
+
+    @if (Session["Nom"] != null)
+    {
+        <h2 class="text-center">Bonjour @Session["Prenom"]</h2>
+        <div class="row justify-content-around text-center text-white">
+            <div class="col-3 bg-info border border-info rounded">
+                <h3>Rubrique 1</h3>
+            </div>
+            <div class="col-3 bg-info border border-info rounded">
+                <h3>Rubrique 2</h3>
+            </div>
+            <div class="col-3 bg-info border border-info rounded">
+                <h3>Rubrique 3</h3>
+            </div>
+        </div>
+    }
+</div>

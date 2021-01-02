@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Zonama.Models.Gerant>
+@if (Session["Nom"] != null)
+{
+
+    {
+        ViewBag.Title = "Liste des gérants";
+    }
+
+    <h2>Listes des gérants</h2>
+
+    <p>
+        @Html.ActionLink("Ajouter un(e) gérant(e)", "Create")
+    </p>
+    <table class="table table-striped text-center">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th class="text-center">Numéro</th>
+                <th class="text-center">Nom</th>
+                <th class="text-center">Prénom</th>
+                <th class="text-center"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id_ger)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.prenom)
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-info">
+                            @Html.ActionLink("Details", "Details", new { id = item.id_ger }, new { @class = "text-white" })
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h3>Erreur! Veuillez vous @Html.ActionLink("connecter", "Index", "Login")</h3>
+}

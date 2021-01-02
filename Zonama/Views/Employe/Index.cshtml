@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Zonama.Models.Employe>
+@if (Session["Nom"] != null)
+{
+
+    {
+        ViewBag.Title = "Liste des employés";
+    }
+
+    <h2>Liste de vos employés</h2>
+
+    <p>
+        @Html.ActionLink("Ajouter un(e) employé(e)", "Create")
+    </p>
+
+    <table class="table table-striped text-center">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th class="text-center">Numéro</th>
+                <th class="text-center">Nom</th>
+                <th class="text-center">Prénom</th>
+                <th class="text-center"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id_emp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.prenom)
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-info">
+                            @Html.ActionLink("Details", "Details", new { id = item.id_emp }, new { @class = "text-white" })
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+else
+{
+    <h3>Erreur! Veuillez vous @Html.ActionLink("connecter", "Index", "Login")</h3>
+}

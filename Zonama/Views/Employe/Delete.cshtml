@@ -1,0 +1,43 @@
+﻿@model Zonama.Models.Employe
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Suppression d'employé(e)</h2>
+
+<h3>Etes vous sûr de vouloir supprimer l'employé(e) ci-dessous?</h3>
+<div>
+    <h4>Employé</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prenom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prenom)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <button type="submit" value="Delete" class="btn btn-danger">
+            Supprimer
+        </button>
+
+        <button type="button" class="btn btn-info">
+            @Html.ActionLink("Retour à la liste", "Index", new { area = "" }, new { @class = "text-white" })
+        </button>
+    }
+</div>

@@ -1,0 +1,44 @@
+﻿@model Zonama.Models.Produit
+
+@if (Session["Nom"] != null)
+{
+
+    {
+        ViewBag.Title = "Details";
+    }
+
+<h2>Details</h2>
+
+<div>
+    <h4>Produits</h4>
+    <hr/>
+    <table class="table table-striped text-center">
+        <tbody>
+            <tr>
+                <th scope="row" class="text-center">Numéro</th>
+                <td>@Html.DisplayFor(model => model.id_prod)</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-center">Nom</th>
+                <td>@Html.DisplayFor(model => model.libelle)</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-center">Prix</th>
+                <td>@Html.DisplayFor(model => model.prix)€</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<button type="button" class="btn btn-info">
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.id_prod }, new { @class = "text-white" })
+</button>
+<button type="button" class="btn btn-info">
+    @Html.ActionLink("Retour à la liste", "Index", new { area = "" }, new { @class = "text-white" })
+</button>
+<button type="button" class="btn btn-danger">
+    @Html.ActionLink("Supprimer", "Delete", new { id = Model.id_prod }, new { @class = "text-white" })
+</button> }
+else
+{
+    <h3>Erreur! Veuillez vous @Html.ActionLink("connecter", "Index", "Login")</h3>
+}

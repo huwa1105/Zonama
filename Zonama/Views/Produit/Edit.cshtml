@@ -1,0 +1,52 @@
+﻿@model Zonama.Models.Produit
+
+@if (Session["Nom"] != null)
+{
+
+    {
+        ViewBag.Title = "Edit";
+    }
+
+<h2>Modifier un produit</h2> using (Html.BeginForm())
+                {
+@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Produits</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.id_prod)
+
+    <div class="form-group">
+        <p class="control-label col-md-2 font-weight-bold text-uppercase">Libelle</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.libelle, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.libelle, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p class="control-label col-md-2 font-weight-bold text-uppercase">Prix unitaire</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.prix, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.prix, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <button type="submit" value="Save" class="btn btn-info text-white">
+        Sauvegarder
+    </button>
+
+    <button type="submit" value="Delete" class="btn btn-info">
+        @Html.ActionLink("Retour à la liste", "Index", new { area = "" }, new { @class = "text-white" })
+    </button>
+</div>}
+}
+else
+{
+    <h3> Erreur! Veuillez vous @Html.ActionLink("connecter", "Index", "Login") </h3>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
