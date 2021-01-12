@@ -1,16 +1,19 @@
 ﻿@model Zonama.Models.Gerant
 
-@{
-    ViewBag.Title = "Ajouter un gérant";
-}
+@if (Session["Nom"] != null)
+{
+
+    {
+        ViewBag.Title = "Ajouter un gérant";
+    }
 
 <h2>Ajouter un gérant</h2>
 
 
-@using (Html.BeginForm()) 
-{
+    using (Html.BeginForm())
+    {
     @Html.AntiForgeryToken()
-    
+
 <div class="form-horizontal">
     <h4>Gerant</h4>
     <hr />
@@ -61,6 +64,12 @@
         @Html.ActionLink("Retour à la liste", "Index", new { area = "" }, new { @class = "text-white" })
     </button>
 </div>
+}
+}
+
+else
+{
+    <h3> Erreur! Veuillez vous @Html.ActionLink("connecter", "Index", "Login") </h3>
 }
 
 @section Scripts {
