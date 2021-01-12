@@ -25,6 +25,7 @@
                         <li>@Html.ActionLink("Produits", "Index", "Produit", new { area = "" }, new { @class = "navbar-brand" })</li>
                         <li>@Html.ActionLink("Services", "Index", "Service", new { area = "" }, new { @class = "navbar-brand" })</li>
                         <li><a class="navbar-brand">@Session["Prenom"] @Session["Nom"]</a></li>
+                        <li>@Html.ActionLink("Mon compte", "Details", "Gerant", new { id = Session["ID"] }, new { @class = "navbar-brand" })</li>
                         <li>@Html.ActionLink("Deconnexion", "Deco", "Login", new { area = "" }, new { @class = "navbar-brand" })</li>
                     }
                     @if (Session["Nom"] == null)

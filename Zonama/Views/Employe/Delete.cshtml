@@ -10,23 +10,34 @@
 <div>
     <h4>Employé</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nom)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.nom)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.prenom)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.prenom)
-        </dd>
-    </dl>
+    <table class="table table-striped text-center">
+        <tbody>
+            <tr>
+                <th scope="row" class="text-center">Numéro</th>
+                <td>@Html.DisplayFor(model => model.id_emp)</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-center">Nom</th>
+                <td>@Html.DisplayFor(model => model.nom)</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-center">Prénom</th>
+                <td>@Html.DisplayFor(model => model.prenom)</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-center">Téléphone</th>
+                <td>@Html.DisplayFor(model => model.tel)</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-center">E-mail</th>
+                <td>@Html.DisplayFor(model => model.email)</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-center">Date d'admission</th>
+                <td>@Html.DisplayFor(model => model.date_adm)</td>
+            </tr>
+        </tbody>
+    </table>
 
     @using (Html.BeginForm())
     {
